@@ -65658,7 +65658,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _views_login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/login */ "./resources/js/views/login.js");
-/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/home */ "./resources/js/views/home.js");
+/* harmony import */ var _views_register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/register */ "./resources/js/views/register.js");
+/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/home */ "./resources/js/views/home.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65696,6 +65697,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
 var App =
 /*#__PURE__*/
 function (_React$Component) {
@@ -65715,91 +65717,6 @@ function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var formData = new FormData();
-      formData.append("password", "AZER");
-      formData.append("email", "mail");
-      formData.append("name", "TCM");
-      axios.post("http://localhost:8000/api/user/register", formData).then(function (response) {
-        console.log(response);
-        return response;
-      }).then(function (json) {
-        if (json.data.success) {
-          alert("Registration Successful!");
-          var userData = {
-            name: json.data.data.name,
-            id: json.data.data.id,
-            email: json.data.data.email,
-            auth_token: json.data.data.auth_token,
-            timestamp: new Date().toString()
-          };
-          var appState = {
-            isLoggedIn: true,
-            user: userData
-          }; // save app state with user date in local storage
-
-          localStorage["appState"] = JSON.stringify(appState);
-
-          _this2.setState({
-            isLoggedIn: appState.isLoggedIn,
-            user: appState.user
-          });
-        } else {
-          alert("Registration Failed!"); // $("#email-login-btn")
-          //   .removeAttr("disabled")
-          //   .html("Register");
-        }
-      }).catch(function (error) {
-        alert("An Error Occured!" + error);
-        console.log("".concat(formData, " ").concat(error));
-        console.log(error.response); // $("#email-login-btn")
-        //   .removeAttr("disabled")
-        //   .html("Register");
-      }); //
-      //
-      // LOGIN AUTO
-      // axios
-      //   .post("http://localhost:8000/api/user/login/", {email: "Monpseudo", password: "Monmdp"})
-      //   .then(response => {
-      //     console.log(response);
-      //     return response;
-      //   })
-      //   .then(json => {
-      //     if (json.data.success) {
-      //       alert("Login Successful!");
-      //       let userData = {
-      //         name: json.data.data.name,
-      //         id: json.data.data.id,
-      //         email: json.data.data.email,
-      //         auth_token: json.data.data.auth_token,
-      //         timestamp: new Date().toString()
-      //       };
-      //       let appState = {
-      //         isLoggedIn: true,
-      //         user: userData
-      //       };
-      //       // save app state with user date in local storage
-      //       localStorage["appState"] = JSON.stringify(appState);
-      //       this.setState({
-      //         isLoggedIn: appState.isLoggedIn,
-      //         user: appState.user
-      //       });
-      //     } else alert("Login Failed!");
-      //     // $("#login-form button")
-      //     //   .removeAttr("disabled")
-      //     //   .html("Login");
-      //   })
-      //   .catch(error => {
-      //     alert(`An Error Occured! ${error}`);
-      //     // $("#login-form button")
-      //     //   .removeAttr("disabled")
-      //     //   .html("Login");
-      //   });
-    }
-  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AppRouter, null);
@@ -65819,17 +65736,17 @@ function AppRouter() {
   }, "Users")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/",
     exact: true,
-    component: _views_home__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _views_home__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/about/",
     component: _views_login__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    path: "/users/",
-    component: _views_login__WEBPACK_IMPORTED_MODULE_3__["default"]
+    path: "/register",
+    component: _views_register__WEBPACK_IMPORTED_MODULE_4__["default"]
   })));
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (AppRouter); // console.log(store.getState())
+/* harmony default export */ __webpack_exports__["default"] = (AppRouter);
 
 if (document.getElementById('app')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('app'));
@@ -66013,6 +65930,152 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./resources/js/views/register.js":
+/*!****************************************!*\
+  !*** ./resources/js/views/register.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Register; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Register =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Register, _React$Component);
+
+  function Register() {
+    _classCallCheck(this, Register);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Register).apply(this, arguments));
+  }
+
+  _createClass(Register, [{
+    key: "registerUser",
+    value: function registerUser(name, email, password) {
+      var _this = this;
+
+      var formData = new FormData();
+      formData.append("password", password);
+      formData.append("email", email);
+      formData.append("name", name);
+      axios.post("http://localhost:8000/api/user/register", formData).then(function (response) {
+        console.log(response);
+        return response;
+      }).then(function (json) {
+        if (json.data.success) {
+          alert("Registration Successful!");
+          var userData = {
+            name: json.data.data.name,
+            id: json.data.data.id,
+            email: json.data.data.email,
+            auth_token: json.data.data.auth_token,
+            timestamp: new Date().toString()
+          };
+          var appState = {
+            isLoggedIn: true,
+            user: userData
+          }; // save app state with user date in local storage
+
+          localStorage["appState"] = JSON.stringify(appState);
+
+          _this.setState({
+            isLoggedIn: appState.isLoggedIn,
+            user: appState.user
+          });
+        } else {
+          alert("Registration Failed!");
+        }
+      }).catch(function (error) {
+        alert("An Error Occured!" + error);
+        console.log("".concat(formData, " ").concat(error));
+      });
+    }
+  }, {
+    key: "handleLogin",
+    value: function handleLogin(e) {
+      e.preventDefault();
+      registerUser(_name.value, _email.value, _password.value);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "login-form",
+        action: "",
+        onSubmit: this.handleLogin,
+        method: "post"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        style: {
+          padding: 15
+        }
+      }, "Register Form"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        autoComplete: "off",
+        id: "email-input",
+        name: "email",
+        type: "text",
+        className: "center-block",
+        placeholder: "Name"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        autoComplete: "off",
+        id: "email-input",
+        name: "email",
+        type: "text",
+        className: "center-block",
+        placeholder: "email"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        autoComplete: "off",
+        id: "password-input",
+        name: "password",
+        type: "password",
+        className: "center-block",
+        placeholder: "password"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "landing-page-btn center-block text-center",
+        id: "email-login-btn",
+        href: "#facebook"
+      }, "Register"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/login"
+      }, "Login")));
+    }
+  }]);
+
+  return Register;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+;
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -66031,8 +66094,8 @@ function (_React$Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Valentin\Desktop\Laravel\react-laravel\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Valentin\Desktop\Laravel\react-laravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Valentin\Desktop\Laravel\Orange Bank\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Valentin\Desktop\Laravel\Orange Bank\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
