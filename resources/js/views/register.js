@@ -3,17 +3,21 @@ import { Link } from "react-router-dom";
 
 export default class Register extends React.Component {
 
-  registerUser(name, email, password) {
+  constructor(props) {
+    super(props)
+  }
 
+  registerUser() {
     var formData = new FormData(); 
-    formData.append("password", password);
-    formData.append("email", email);
-    formData.append("name", name);
-  
+    formData.append("password", document.getElementById('password-input').value );
+    formData.append("email", document.getElementById('email-input').value );
+    formData.append("name", document.getElementById('name-input').value );
+    // console.log(formData)
+
     axios
       .post("http://localhost:8000/api/user/register", formData)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         return response;
       })
       .then(json => {
@@ -27,49 +31,42 @@ export default class Register extends React.Component {
             auth_token: json.data.data.auth_token,
             timestamp: new Date().toString()
           };
+
           let appState = {
             isLoggedIn: true,
             user: userData
           };
-          // save app state with user date in local storage
+
           localStorage["appState"] = JSON.stringify(appState);
-          this.setState({
-            isLoggedIn: appState.isLoggedIn,
-            user: appState.user
-          });
+          this.props.login(appState);
+
         } else {
           alert(`Registration Failed!`);
         }
       })
       .catch(error => {
         alert("An Error Occured!" + error);
-        console.log(`${formData} ${error}`);
+        // console.log(error.response)
       });
   };
 
-  handleLogin(e) {
+  handleRegistration(e) {
     e.preventDefault();
-
-    registerUser(_name.value, _email.value, _password.value);
+    this.registerUser();
   };
 
   render() {
     return (
-      <div id="main">
-        <form id="login-form" action="" onSubmit={this.handleLogin} method="post">
-          <h3 style={{ padding: 15 }}>Register Form</h3>
-          <input autoComplete="off" id="email-input" name="email" type="text" className="center-block" placeholder="Name" />
-          <input autoComplete="off" id="email-input" name="email" type="text" className="center-block" placeholder="email" />
-          <input autoComplete="off" id="password-input" name="password" type="password" className="center-block" placeholder="password" />
-          <button type="submit" className="landing-page-btn center-block text-center" id="email-login-btn" href="#facebook" >
+      <>
+        <form onSubmit={(e) => this.handleRegistration(e)} method="post">
+          <input id="name-input" type="text" placeholder="Name" />
+          <input id="email-input" type="text" placeholder="email" />
+          <input id="password-input" type="password" placeholder="password" />
+          <button type="submit">
             Register
           </button>
-  
-          <Link to="/login">
-            Login
-          </Link>
         </form>
-      </div>
+      </>
     );
   }
 };

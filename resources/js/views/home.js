@@ -5,7 +5,7 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      "page home"
+      <h1>Vous vous trouvez sur l'accueil</h1>
     )
   }
 
