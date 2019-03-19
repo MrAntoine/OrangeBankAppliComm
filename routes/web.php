@@ -25,7 +25,11 @@ Route::get('/login', function () {
 
 Route::get('/comptes', function () {
     return view('welcome');
-  });
+});
+
+Route::get('/compte', function () {
+    return view('welcome');
+});
 
 Route::get('/contact', function () {
   return view('welcome');
@@ -33,4 +37,4 @@ Route::get('/contact', function () {
 
 Route::get('/promo', function () {
     return view('welcome');
-  });
+});

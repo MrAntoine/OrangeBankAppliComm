@@ -65664,7 +65664,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_contact__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/contact */ "./resources/js/views/contact.js");
 /* harmony import */ var _views_accueil__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/accueil */ "./resources/js/views/accueil.js");
 /* harmony import */ var _views_comptes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/comptes */ "./resources/js/views/comptes.js");
-/* harmony import */ var _views_promo__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/promo */ "./resources/js/views/promo.js");
+/* harmony import */ var _views_compte__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/compte */ "./resources/js/views/compte.js");
+/* harmony import */ var _views_promo__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/promo */ "./resources/js/views/promo.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -65696,6 +65697,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 
 
 
@@ -65771,7 +65773,7 @@ function (_React$Component) {
         href: "#",
         className: "djingo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "/img/svg/help.svg"
+        src: "/img/djingo-button.png"
       })), this.state.isLoggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
         isLoggedIn: this.state.isLoggedIn,
         logout: this.logout
@@ -65798,6 +65800,10 @@ function (_React$Component) {
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/compte",
+        exact: true,
+        component: _views_compte__WEBPACK_IMPORTED_MODULE_10__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/comptes",
         exact: true,
         component: _views_comptes__WEBPACK_IMPORTED_MODULE_9__["default"]
@@ -65808,7 +65814,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/promo",
         exact: true,
-        component: _views_promo__WEBPACK_IMPORTED_MODULE_10__["default"]
+        component: _views_promo__WEBPACK_IMPORTED_MODULE_11__["default"]
       })));
     }
   }]);
@@ -66037,6 +66043,83 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./resources/js/views/compte.js":
+/*!**************************************!*\
+  !*** ./resources/js/views/compte.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Compte; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Compte =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Compte, _React$Component);
+
+  function Compte() {
+    _classCallCheck(this, Compte);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Compte).apply(this, arguments));
+  }
+
+  _createClass(Compte, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "/img/svg/Orange_logo.svg"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "D\xE9tails de mon compte")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container margin-top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "comptes"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "CPT DEPOT PART"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "infos"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "numero"
+      }, "N\xB009876543210"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "argent"
+      }, "160.55\u20AC"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "history"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Dentiste"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "argent"
+      }, "160 \u20AC")))));
+    }
+  }]);
+
+  return Compte;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+
+/***/ }),
+
 /***/ "./resources/js/views/comptes.js":
 /*!***************************************!*\
   !*** ./resources/js/views/comptes.js ***!
@@ -66090,16 +66173,12 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/img/svg/Orange_logo.svg"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Mes comptes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
+        className: "container margin-top"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "graphiques"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "repere"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "0 \u20AC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "2000 \u20AC")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rec first"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "1654.76 \u20AC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "CPT DEPOT/COMMUN")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "rec second"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "160.55 \u20AC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "CPT DEPOT PART"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Comptes courants ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "1979.97 \u20AC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Mes avoirs"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Comptes courants ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "argent"
       }, "1815.31\u20AC")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "comptes"

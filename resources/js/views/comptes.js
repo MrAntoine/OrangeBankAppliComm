@@ -10,21 +10,25 @@ export default class Comptes extends React.Component {
         <img src="/img/svg/Orange_logo.svg" />
         <h1>Mes comptes</h1>
       </div>
-      <div className="container">
+      <div className="container margin-top">
         {/* <img src="/img/svg/graph courant.svg" className="illustration" /> */}
         <section className="graphiques">
-          <div className="repere">
+          {/* <div className="repere">
             <span>0 €</span>
             <span>2000 €</span>
-          </div>
+          </div> */}
           <div className="rec first">
-            <span>1654.76 €</span>
-            <span>CPT DEPOT/COMMUN</span>
+            <span>1979.97 €</span>
+            <span>Mes avoirs</span>
           </div>
-          <div className="rec second">
-            <span>160.55 €</span>
-            <span>CPT DEPOT PART</span>
+          {/* <div className="rec second">
+            <span>1815.31 €</span>
+            <span>Comptes courants</span>
           </div>
+          <div className="rec third">
+            <span>164.66 €</span>
+            <span>Livrets</span>
+          </div> */}
         </section>
         <h2>Comptes courants <span className="argent">1815.31€</span></h2>
         <ul className="comptes">

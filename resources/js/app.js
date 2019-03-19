@@ -23,6 +23,7 @@ import Home from "./views/home";
 import Contact from "./views/contact";
 import Accueil from "./views/accueil";
 import Comptes from "./views/comptes";
+import Compte from "./views/compte";
 import Promo from "./views/promo"
 
 class App extends React.Component {
@@ -69,7 +70,7 @@ class App extends React.Component {
       <Router>
         <>
         <a href="#" className="djingo">
-        <img src="/img/svg/help.svg" />
+          <img src="/img/djingo-button.png" />
         </a>
           {
             this.state.isLoggedIn ?
@@ -95,6 +96,7 @@ class App extends React.Component {
                 )}
               />
           }
+          <Route path="/compte" exact component={Compte} />
           <Route path="/comptes" exact component={Comptes} />
           <Route path="/register" exact component={Register} />
           <Route path="/promo" exact component={Promo} />
