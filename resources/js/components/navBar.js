@@ -14,22 +14,44 @@ export default class Navbar extends React.Component {
 
   render() {
 
-    let links;
-    if(this.props.isLoggedIn === false) links =
+    let links =
       <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/register">Register</Link></li>
-      </>
-    else links =
-      <>
-        <li><Link to="/">Home</Link></li>
-        <li><a href="#" onClick={(e) => this.handleLogout(e)}>Logout</a></li>
+        <li>
+          <Link to="/" className="nav-btn">
+            <img src="/img/svg/home.svg" />
+            <span>Accueil</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/comptes" className="nav-btn">
+            <img src="/img/svg/account-card-details.svg" />
+            <span>Comptes</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/" className="nav-btn">
+            <img src="/img/svg/currency-eur.svg" />
+            <span>Transfert</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/promo" className="nav-btn">
+            <img src="/img/svg/percent.svg" />
+            <span>Promotions</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className="nav-btn">
+            <img src="/img/svg/phone-in-talk.svg" />
+            <span>Contacts</span>
+          </Link>
+        </li>
+        {/* <li><a href="#" onClick={(e) => this.handleLogout(e)}>Logout</a></li> */}
       </>
 
     return (
 
-      <nav>
+      <nav className="navigation">
         <ul>
           {links}
         </ul>

@@ -20,6 +20,10 @@ import Navbar from "./components/navBar";
 import Login from "./views/login";
 import Register from "./views/register";
 import Home from "./views/home";
+import Contact from "./views/contact";
+import Accueil from "./views/accueil";
+import Comptes from "./views/comptes";
+import Promo from "./views/promo"
 
 class App extends React.Component {
 
@@ -61,24 +65,40 @@ class App extends React.Component {
 
   render() {
     return (
+      
       <Router>
-        <div>
-          <Navbar isLoggedIn={this.state.isLoggedIn} logout={this.logout} />
-
-          <Route path="/" exact component={Home} />
-          <Route
-            path="/login"
-            render={props => (
-              <Login {...props} login={this.login} />
-            )}
-          />
-          <Route
-            path="/register"
-            render={props => (
-              <Register {...props} login={this.login} />
-            )}
-          />
-        </div>
+        <>
+        <a href="#" className="djingo">
+        <img src="/img/svg/help.svg" />
+        </a>
+          {
+            this.state.isLoggedIn ?
+              <Navbar isLoggedIn={this.state.isLoggedIn} logout={this.logout} />
+            :
+              null
+          }
+          {
+            this.state.isLoggedIn ?
+              <Route path="/" exact component={Accueil} />
+            :
+              <Route path="/" exact component={Home} />
+          }
+          <Route path="/contact" exact component={Contact} />
+          {
+            this.state.isLoggedIn ?
+              <Route path="/login" component={Accueil} />
+            :
+              <Route
+                path="/login"
+                render={props => (
+                  <Login {...props} login={this.login} />
+                )}
+              />
+          }
+          <Route path="/comptes" exact component={Comptes} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/promo" exact component={Promo} />
+        </>
       </Router>
     );
   }

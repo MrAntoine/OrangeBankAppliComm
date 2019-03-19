@@ -52,15 +52,21 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <>
-        <form onSubmit={(e) => this.handleLogin(e)} method="post">
-          <input id="email-input" type="text" placeholder="email" />
-          <input id="password-input" type="password" placeholder="password" />
-          <button type="submit">
+      <div className="container margin-top">
+      
+        <h1>Se connecter</h1>
+        <form onSubmit={(e) => this.handleLogin(e)} method="post" className="form">
+          <label for="username">Nom d'utilisateur</label>
+          <input name="username" id="email-input" type="text" placeholder="email" />
+
+          <label for="password">Mot de passe</label>
+          <input name="password" id="password-input" type="password" placeholder="password" />
+
+          <button type="submit" className="btn">
             Login
           </button>
         </form>
-      </>
+      </div>
     );
   }
 };

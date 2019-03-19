@@ -1,0 +1,30 @@
+p, h1, h2, h3, h4, h5, h6 {
+  color: $black-2;
+}
+
+h1 {
+  max-width: 17em;
+  font-size: 1.5em;
+  text-align: center;
+  @include tablet {
+    font-size: 2em;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  max-width: 34em;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
