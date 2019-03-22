@@ -1,0 +1,38 @@
+.navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: $orange;
+  box-shadow: 0 -2px 1em rgba($color: #000000, $alpha: 0.15);
+  width: 100%;
+  z-index: 10000;
+
+  ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    
+    li {
+      font-weight: 600;
+      
+      .nav-btn {
+        height: 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        padding: 0.25em 0.5em;
+        img {
+          width: 32px;
+          box-sizing: content-box;
+          margin-bottom: 0.25em;
+        }
+        span {
+          font-size: 12px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

@@ -14,3 +14,35 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/register', function () {
+    return view('welcome');
+});
+
+Route::get('/login', function () {
+    return view('welcome');
+});
+
+Route::get('/comptes', function () {
+    return view('welcome');
+});
+
+Route::get('/compte', function () {
+    return view('welcome');
+});
+
+Route::get('/contact', function () {
+  return view('welcome');
+});
+
+Route::get('/promo', function () {
+    return view('welcome');
+});
+
+Route::get('/transfert', function () {
+    return view('welcome');
+});
+
+Route::get('/questions', function () {
+    return view('welcome');
+});
