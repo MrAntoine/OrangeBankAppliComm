@@ -38,3 +38,11 @@ Route::get('/contact', function () {
 Route::get('/promo', function () {
     return view('welcome');
 });
+
+Route::get('/transfert', function () {
+    return view('welcome');
+});
+
+Route::get('/questions', function () {
+    return view('welcome');
+});

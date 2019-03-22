@@ -1,9 +1,75 @@
-.djingo{
-    position: fixed;
-    right: 0.5em;
-    bottom: calc(64px + 1rem);
+#djingo {
+  position: fixed;
+  right: 0.5em;
+  bottom: calc(64px + 1rem);
+  z-index: 100000;
+
+  .djingo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    height: 5em;
+    width: 5em;
+    background: #fff;
+    border: solid $cyan 0.5em;
+    box-shadow: 0 2px 6px rgba($color: #000000, $alpha: 0.25);
 
     img {
-      width: 60px;
+      height: 3em;
     }
+  }
+}
+
+.icon {
+  height: 6em;
+}
+
+#djingo-display {
+  z-index: 1000;
+  display: none;
+  position: fixed;
+  width: 100%;
+  min-height: 200px;
+  background: rgba($color: #000000, $alpha: 0.75);
+  // border-top: solid $red 0.5em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  // top: 0;
+  // bottom: 0;
+  margin: auto;
+
+  &.true {
+    display: flex;
+  }
+
+  div {
+    background: #fff;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    & > img {
+      height: 6em;
+      width: 6em;
+    }
+
+    .inline-p {
+      display: inline;
+      width: 10em;
+    }
+  }
 }

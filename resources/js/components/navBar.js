@@ -29,7 +29,7 @@ export default class Navbar extends React.Component {
           </Link>
         </li>
         <li>
-          <Link to="/" className="nav-btn">
+          <Link to="/transfert" className="nav-btn">
             <img src="/img/svg/currency-eur.svg" />
             <span>Transfert</span>
           </Link>

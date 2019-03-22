@@ -18,8 +18,8 @@ export default class Comptes extends React.Component {
             <span>2000 €</span>
           </div> */}
           <div className="rec first">
-            <span>1979.97 €</span>
             <span>Mes avoirs</span>
+            <span>1979.97 €</span>
           </div>
           {/* <div className="rec second">
             <span>1815.31 €</span>
@@ -33,7 +33,7 @@ export default class Comptes extends React.Component {
         <h2>Comptes courants <span className="argent">1815.31€</span></h2>
         <ul className="comptes">
           <li>
-            <Link to="/">
+            <Link to="/compte">
               <div>
                 <span>CPT DEPOT PART</span>
                 <div className="infos">
@@ -44,7 +44,7 @@ export default class Comptes extends React.Component {
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to="/compte">
               <div>
                 <span>CPT DEPOT/COMMUN</span>
                 <div className="infos">
@@ -58,7 +58,7 @@ export default class Comptes extends React.Component {
         <h2>Livrets <span className="argent">164.66€</span></h2>
         <ul className="comptes">
           <li>
-            <Link to="/">
+            <Link to="/compte">
               <div>
                 <span>LIVRET JEUNE</span>
                 <div className="infos">
@@ -69,7 +69,7 @@ export default class Comptes extends React.Component {
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to="/compte">
               <div>
                 <span>LIVRET A</span>
                 <div className="infos">

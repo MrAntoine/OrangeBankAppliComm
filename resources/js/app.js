@@ -25,6 +25,8 @@ import Accueil from "./views/accueil";
 import Comptes from "./views/comptes";
 import Compte from "./views/compte";
 import Promo from "./views/promo"
+import Transferts from "./views/transfert"
+import Faq from "./views/faq"
 
 class App extends React.Component {
 
@@ -32,7 +34,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       isLoggedIn: false,
-      user: {}
+      user: {},
+      djingo: false,
+      option: null
     };
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
@@ -64,14 +68,68 @@ class App extends React.Component {
     this.setState(appState);
   }
 
+  djingo() {
+    this.setState({
+      djingo: !this.state.djingo,
+      option: null
+    })
+  }
+
   render() {
     return (
       
       <Router>
         <>
-        <a href="#" className="djingo">
-          <img src="/img/djingo-button.png" />
-        </a>
+        <div id="djingo" onClick={() => this.djingo()}>
+          <span className="djingo">
+            {/* <img src="/img/djingo-button.png" /> */}
+            {/* <img src="/img/svg/account-question.svg" alt="Aide"/> */}
+            <img src="/img/svg/djingo-icon.svg" className="icon" alt="Djingo"/>
+          </span>
+        </div>
+        <div id="djingo-display" className={this.state.djingo.toString()} >
+          <div>
+            <div>
+              <img src="/img/svg/djingo-icon.svg" />
+              <p className="inline-p">Je peux t'aider ?</p>
+            </div>
+            <span className="btn white cyan" onClick={() => this.setState({
+              option: 1
+            })}>
+              Poser une question <img src="/img/svg/microphone.svg" />
+            </span>
+            {
+              this.state.option
+              ? (
+                <>
+                <form>
+                  <input type="text" />
+                  <button className="btn blue">Envoyer</button>
+                </form>
+                  <span onClick={() => this.setState({
+                    option: null
+                  })}>
+                    <img src="/img/svg/arrow_left.svg" alt="Retour" />
+                  </span>
+                </>
+              )
+              : (
+                <>
+                  <span className="btn white cyan">
+                    Je ne comprends pas cette page
+                  </span>
+                  <Link to="/questions" className="btn white cyan" onClick={() => this.setState({
+                    djingo: false
+                  })}>
+                    {/* <span > */}
+                      Questions récurrentes
+                    {/* </span> */}
+                  </Link>
+                </>
+              )
+            }
+          </div>
+        </div>
           {
             this.state.isLoggedIn ?
               <Navbar isLoggedIn={this.state.isLoggedIn} logout={this.logout} />
@@ -84,7 +142,12 @@ class App extends React.Component {
             :
               <Route path="/" exact component={Home} />
           }
-          <Route path="/contact" exact component={Contact} />
+            <Route
+              path="/contact"
+              render={props => (
+                <Contact {...props} isLoggedIn={this.state.isLoggedIn} />
+              )}
+            />
           {
             this.state.isLoggedIn ?
               <Route path="/login" component={Accueil} />
@@ -100,6 +163,8 @@ class App extends React.Component {
           <Route path="/comptes" exact component={Comptes} />
           <Route path="/register" exact component={Register} />
           <Route path="/promo" exact component={Promo} />
+          <Route path="/transfert" exact component={Transferts} />
+          <Route path="/questions" exact component={Faq} />
         </>
       </Router>
     );

@@ -5,6 +5,7 @@
   background: $orange;
   box-shadow: 0 -2px 1em rgba($color: #000000, $alpha: 0.15);
   width: 100%;
+  z-index: 10000;
 
   ul {
     display: flex;
